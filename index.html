@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Café - Página Inicial</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="logomarca">
+        <img id="logo" src="./img/logo.png" alt="Logotipo Rock Café" />
+        <h1>Rock Café</h1>
+      </div>
+      <ul class="linksnav">
+        <li><a href="cardapio.html">Cardápio</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+    <section class="apresentacao">
+      <h1>Bem-vindo ao Rock Café</h1>
+      <p>
+        Aqui no <strong>Rock Café</strong> é o seguinte: <br />
+        Nas manhãs, servimos cafés acompanhados de tortas e salgados para
+        começar bem o dia. <br />
+        Já nos finais de semana à noite, a casa vibra com música ao vivo e um
+        cardápio especial com drinks, destilados, petiscos, chopp e muito mais.
+      </p>
+      <p>
+        <strong>Horário de Funcionamento:</strong><br />
+        Seg a Sex das 06:30 às 15:00h<br />
+        Sex a Dom das 18:00 às 00:00
+      </p>
+    </section>
+    <div class="carrossel">
+      <div class="slides">
+        <img src="./img/tortaCappuccino.png" alt="Café expresso com torta de chocolate" />
+        <img src="./img/show.png" alt="Música ao vivo no Rock Café" />
+        <img src="./img/caipirinhaPasteis.png" alt="Drinks e petiscos exclusivos" />
+        <img src="./img/torre.png" alt="Beers e destilados na promoção" />
+        
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+    <section class="sugestoes">
+      <h2>O que torna o Rock Café especial?</h2>
+      <ul class="diferenciais">
+        <li>Ambiente rústico e acolhedor para o seu café do dia</li>
+        <li>Noites com música ao vivo das bandas que você escolhe</li>
+        <li>Variedade de bebidas, drinks e petiscos exclusivos da casa</li>
+      </ul>
+    </section>
+    <p class="redes">
+      Conheça mais sobre nós no
+      <a href="https://www.instagram.com" target="_blank">Instagram</a>.
+    </p>
+
+    <script>
+      let slideIndex = 0;
+      const slides = document.querySelectorAll(".slides img");
+      const prevBtn = document.querySelector(".prev");
+      const nextBtn = document.querySelector(".next");
+      function showSlide(index) {
+        slides.forEach((slide, i) => {
+          slide.style.display = i === index ? "block" : "none";
+        });
+      }
+      function nextSlide() {
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
+      }
+      function prevSlide() {
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlide(slideIndex);
+      }
+      nextBtn.addEventListener("click", nextSlide);
+      prevBtn.addEventListener("click", prevSlide);
+      setInterval(nextSlide, 5000);
+      showSlide(slideIndex);
+    </script>
+  </body>
+</html>
+
